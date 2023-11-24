@@ -27,7 +27,12 @@ bc.phenos <- c("ecw", "liver", "spleen", "kidney", "heart", "testis", "brain",
 strains <-  c("B6.A-15 BC1", "B6.A-17 BC1", "B6.A-19 BC1", "B6.A-X F1", "B6.C")
 
 ## population orders
-popuation.names <- c("Discovery Population", "Replicate Backcross", "N3")
+popuation.names <- c("Discovery Population (N2)", "Replicate Backcross (N2)",
+                     "N3")
 population.years <- c("2012", "2013")
+
+## tissues
+tissues <- c("pituitary", "liver", "heart", "embryo", "placenta")
+Tissues <- c("Pituitary", "Liver", "Heart", "Embryo", "Placenta")
 
 ## ---- color maps

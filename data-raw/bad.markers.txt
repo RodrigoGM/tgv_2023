@@ -1,0 +1,84 @@
+marker	reason
+rs49897391	congenic end chr 15
+rs32637673	congenic end chr 15
+rs49040456	congenic end chr 15, monomorphic A
+rs32673981	congenic end chr 15
+rs32682793	monomorphic B
+rs49956984	monomorphic AB
+rs32297335	types hets as AA
+rs50342151	monomorphic B
+rs31842476	many incorrect genotypes
+rs46611993	monomorphic A
+rs108459662	monomorphic A
+rs52121275	monomorphic B
+rs31891086	types hets as BB
+rs33540322	monomorphic B
+rs33572614	monomorphic B
+rs36521447	monomorphic B
+rs46843366	monomorphic B
+rs31206144	monomorphic B
+rs31273256	monomorphic B
+rs31397906	monomorphic B
+rs31452190	monomorphic B
+rs37352671	monomorphic B
+rs50323435	monomorphic B
+rs50832373	monomorphic B
+rs32179213	monomorphic B
+rs31752934	monomorphic A
+rs29498809	congenic end chr 17
+rs29539527	congenic end chr 17
+rs46041912	did not work, possible congenic end.
+rs33745770	monomorphic B
+rs51220252	monomorphic AB
+rs49645304	many incorrect genotypes
+rs48496553	monomorphic B
+rs107600512	monomorphic B
+rs29539274	types hets as AA
+rs47729076	monomorphic B
+rs47323735	monomorphic B
+rs33802759	monomorphic B
+rs45992938	monomorphic AB
+rs46002205	monomorphic B
+rs108588576	monomorphic A
+rs33516917	types hets as A
+rs45733945	monomorphic B
+rs51660544	monomorphic B
+rs50904802	monomorphic B
+rs33336902	monomorphic B
+rs46726320	monomorphic B
+rs50791623	monomorphic B
+rs107833597	monomorphic B
+rs33711977	types hets as A
+rs33340959	types hets as A
+rs49639175	monomorphic B
+rs52606191	did not work
+rs48324821	congenic end chr 17
+rs107708765	congenic end chr 17, monomorphic A
+rs50178475	monomorphic AB, possible congenic end chr 19
+rs38893217	monomorphic B
+rs46259296	monomorphic B
+rs49628217	monomorphic B
+rs36537044	monomorphic B
+rs36397401	monomorphic B
+rs37586872	monomorphic B
+rs30319529	many incorrect genotypes and missing
+rs36585337	monomorphic B
+rs36514014	many incorrect genotypes
+rs52634287	monomorphic B
+rs47033126	monomorphic B
+rs37566883	monomorphic B
+rs30320658	many incorrect genotypes
+rs31011011	types hets as AA
+rs51838020	monomorphic B
+rs36973884	monomorphic B
+rs51341177	monomorphic A
+rs37951537	monomorphic B
+rs31786678	monomorphic A, congenic end
+rs31797042	did not work
+rs31821834	types heterozygous in chr X
+rs50753219	types heterozygous in chr X
+UK_Xpar2	not typed
+rs33651619	did not work (Neogen)
+rs33858761	did not work (Neogen)
+UK_Xpar1	did not work (Neogen)
+UK_Xpar3	did not work (Neogen)

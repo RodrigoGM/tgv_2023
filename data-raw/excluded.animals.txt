@@ -1,0 +1,41 @@
+id	reason
+4703	founder
+4704	founder
+4705	founder
+4706	founder
+4707	founder
+4708	founder
+4710	founder
+3515	f1 breeder
+4909	f1 breeder
+6258	f1 breeder
+6259	f1 breeder
+6048	CTRL
+6049	CTRL
+6050	CTRL
+3368	f1 breeder
+5009	f1 breeder
+5225	f1 breeder
+5828	f1 breeder
+5829	f1 breeder
+5830	f1 breeder
+6330	f1 breeder
+6122	CTRL
+4932	f1 breeder
+4967	f1 breeder
+5023	f1 breeder
+5215	f1 breeder
+5266	f1 breeder
+5781	f1 breeder
+5782	f1 breeder
+5783	f1 breeder
+5945	lost tag, incorrect genotype
+5976	lost tag, incorrect genotype
+5977	id as 5976
+5980	lost tag, incorrect genotype
+444	hydrocephalus
+5153	unknown gender, most likely female
+5803	problem with dams
+5804	problem with dams
+6005	No genotypes
+5985	Incorrect line

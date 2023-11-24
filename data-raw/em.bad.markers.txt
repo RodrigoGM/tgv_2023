@@ -1,0 +1,172 @@
+marker	reason
+rs49897391	congenic end
+rs32637673	congenic end
+rs49040456	empty; removed on P2
+rs32655523	congenic end
+rs32673981	congenic end
+rs32682793	empty
+rs45991008	monomorphic BB
+rs49956984	empty
+rs47687055	monomorphic BB
+rs32297335	empty
+rs52581085	empty
+rs52581085	too many errors
+rs50342151	empty
+rs31842476	empty
+rs31602838	empty
+ULG26023346	monomorphic BB
+rs46611993	empty
+rs32939091	monomorphic BB
+rs31810041	empty
+rs33858761	empty
+ULG34399548	empty
+rs108459662	empty
+rs52121275	empty
+rs49010913	monomorphic BB
+rs31891086	empty
+rs31715952	empty
+rs32422573	monomorphic AA
+rs32395275	empty
+rs32134182	too many errors
+rs33374515	empty
+rs33540322	empty
+rs33605703	monomorphic BB
+rs33572614	empty
+rs36521447	empty
+rs46843366	empty
+rs32148566	empty
+rs31206144	empty
+rs31227414	monomorphic BB
+rs31273256	empty
+rs31397906	empty
+rs31452190	empty
+rs46729192	monomorphic BB
+rs37352671	empty
+rs51430799	empty
+rs31891169	empty
+rs47174784	empty
+rs50323435	empty
+rs32144298	empty
+rs50832373	empty
+rs46889421	monomorphic BB
+rs32179213	empty
+rs31590098	monomorphic AB
+rs31752934	empty; end Chr15
+rs29498809	too many errors; switched alleles, start Chr17
+rs29539527	empty
+rs108467584	congenic end
+rs46041912	empty
+rs33260080	monomorphic BB
+ULG10645965	empty
+rs33745770	empty
+rs51220252	empty
+rs33086113	empty
+rs49645304	empty
+rs50169031	empty
+ULG23509098	monomorphic BB
+rs107783838	**too many errors
+rs33636184	empty
+rs48496553	empty
+rs46757444	monomorphic BB
+rs107600512	empty
+rs29539274	empty
+rs33299979	monomorphic BB; AB at random
+rs47729076	empty
+rs51470574	monomorphic BB
+rs47323735	empty
+rs33807484	monomorphic BB
+rs33802759	empty
+rs46329039	monomorphic
+rs46002205	empty
+rs33171384	empty
+rs108588576	empty
+rs33334811	empty
+rs33516917	empty
+rs45733945	empty
+rs51660544	empty
+rs50904802	empty
+rs29498805	monomorphic BB
+rs51746172	monomorphic BB
+rs33336902	empty
+rs46726320	empty
+rs49737367	monomorphic AA
+rs50791623	empty
+rs33662527	too many empty genotypes
+rs33655007	empty
+rs6233288	empty
+rs107833597	empty
+rs46496980	empty
+rs33711977	empty
+rs33340959	empty
+rs49639175	empty
+rs52606191	empty
+rs50675508	monomorphic BB
+rs49461948	empty
+rs50648121	monomorphic BB
+rs29763931	empty
+rs33238264	empty
+rs33651619	empty
+rs48324821	Does not type correctly; congenic end
+rs107708765	monomorphic AA; congenic end; end of chr17
+rs50178475	empty
+ULG3100170	monomorphic BB
+rs51345045	monomorphic AA
+rs38893217	empty
+rs46259296	empty
+rs49628217	empty
+rs36537044	empty
+rs30407212	empty
+rs30755836	monomorphic AB
+rs36397401	empty
+rs37586872	empty
+rs30319529	empty
+rs36585337	empty
+ULG29755517	monomorphic AA
+rs38276147	monomorphic BB
+rs36514014	empty
+rs52634287	empty
+rs47033126	empty
+ULG36546291	switched alleles (AB = BB; AA = AB)
+rs37566883	empty
+rs31126195	empty
+rs31009044	empty
+rs30320658	empty
+rs31011011	empty
+rs31159015	monomorphic AA
+rs36420100	empty
+rs51838020	empty
+rs36973884	empty
+rs37736991	monomorphic BB
+rs30782622	does not type correctly
+rs46618670	empty
+rs51341177	empty
+rs30454394	switched alleles (AA = BB)
+rs37951537	empty
+rs48099419	empty; end of chr19
+rs31569672	monomorphic BB (sexing)
+rs29079509	monomorphic BB (sexing)
+X_160865233	too many blanks (sexing)
+X_161557385	too many blanks (sexing)
+rs31777082	monomorphic BB (sexing)
+rs31786678	monomorphic AA (sexin)
+X_160865233	
+rs31797042	monomorphic BB; too many blanks (sexing)
+X_166428620	empty
+rs50753219	empty
+rs48583840	empty
+UK_Xpar1	empty
+UK_Xpar3	empty
+UK_Xpar2	empty
+rs51898375	empty
+rs46269639	ununderstandable genotype (sexing)
+rs51898375	did not work (sexing)
+rs51996426	switched alleles
+rs50152955	switched alleles
+rs33636358	monomorphic AA in RBC
+rs31821834	too many errors in RBC
+X_166416845	monomorphic in RBC
+X_166422140	too many errors in RBC
+rs50136181	monomorphic in RBC
+SRY	monomorphic in RBC
+X_166435251	    monomprhic AA in embryo
+

@@ -1,0 +1,54 @@
+id	reason
+420	heterozygous on chr17 when strain is B6.A-15
+719	heterozygous on chr17 when strain is B6.A-15
+723	heterozygous on chr17 when strain is B6.A-15
+125	heterozygous on chr15 when strain is B6.A-17
+424	heterozygous on chr15 when strain is B6.A-17
+175	heterozygous on chr15 when strain is B6.A-17
+462	heterozygous on chr15 when strain is B6.A-19
+520	heterozygous on chr15 when strain is B6.A-19
+287	heterozygous on chr15 and 17 when strain is B6.A-19
+377	low call.rate
+367	low call.rate
+369	low call.rate
+371	low call.rate
+379	low call.rate
+520	low call.rate
+612	low call.rate
+447	low call.rate
+281	low call.rate
+203	low call.rate
+706	low call.rate
+378	low call.rate
+867	low call.rate
+802	low call.rate
+869	low call.rate
+287	low call.rate
+526	low call.rate
+811	low call.rate
+429	low call.rate
+197	low call.rate
+499	low call.rate
+234	low call.rate
+245	low call.rate
+441	low call.rate
+257	low call.rate
+269	low call.rate
+508	low call.rate
+251	low call.rate
+336	low call.rate
+173	low call.rate
+676	low call.rate
+263	low call.rate
+496	low call.rate
+232	low call.rate
+342	low call.rate
+275	low call.rate
+439	low call.rate
+341	low call.rate
+366	low call.rate
+368	low call.rate
+370	low call.rate
+372	low call.rate
+373	low call.rate
+375	low call.rate

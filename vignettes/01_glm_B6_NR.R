@@ -111,6 +111,8 @@ bb.smry.df <- lapply(phenos, function(i) {
 }) %>% do.call(rbind, .)
 
 
+
+
 ## replicate backcross
 rj30.out <- glm(bw30 ~ strain, data = b6.nr$rbc)
 rj30.comp <- glht(rj30.out, linfct = mcp(strain = "Tukey"),
@@ -140,7 +142,8 @@ rbc.comp<- lapply(rbc.out, glht, linfct = mcp(strain = "Tukey"),
 
 
 ## 
-rbb.smry <- lapply(c(list("bw30" = rj30.comp), rbw.comp, rmm.comp, rbc.comp), summary)
+rbb.smry <- lapply(c(list("bw30" = rj30.comp),
+                     rbw.comp, rmm.comp, rbc.comp), summary)
 rbb.smry.df <- lapply(phenos, function(i) {
     xx <- do.call(cbind, rbb.smry[[i]]$test)[, -c(1:2,7)]
     xx <- as.data.frame(xx) %>% rownames_to_column(var = "comparison")
@@ -151,8 +154,9 @@ rbb.smry.df <- lapply(phenos, function(i) {
 bb.smry.df$cohort <- "Discovery Backcross (N2)"
 rbb.smry.df$cohort <- "Replicate Backcross (N2)"
 
+excel.out.file <- file.path(tabDir, "b6_comparisons_effects_sd_pval_2023.xlsx")
 rbind(bb.smry.df, b6.nr$rbc.smry.df) %>%
-    xlsx::write.xlsx(file = file.path(tabDir, "b6_comparisons_effects_sd_pval_2023.xlsx"),
+    xlsx::write.xlsx(file = excel.out.file,
                      sheetName = "BodyComp SMRY", row.names = FALSE)
 
 
@@ -184,27 +188,52 @@ bc.ls.comp <- lapply(bc.ls.out, glht, linfct = mcp(strain = "Tukey"),
                      alternative = "two.sided")
 
 
+
+## having sire.present as a covariate
+j30.sp.out <- glm(bw30 ~ strain + sire.present, data = b6.nr$css)
+j30.sp.comp <- glht(j30.out, linfct = mcp(strain = "Tukey"),
+                    alternative = "two.sided")
+
+bw.sp.out <- apply(b6.nr$css[, bw.phenos], 2, function(PHEN)
+    glm(PHEN ~ strain + sire.present, data = b6.nr$css))
+names(bw.sp.out) <- bw.phenos
+bw.sp.comp <- lapply(bw.sp.out, glht, linfct = mcp(strain = "Tukey"),
+                     alternative = "two.sided")
+
+mm.sp.out <- apply(b6.nr$css[, mm.phenos], 2, function(PHEN)
+    glm(PHEN ~ strain + sire.present, data = b6.nr$css))
+names(mm.sp.out) <- mm.phenos
+mm.sp.comp<- lapply(mm.sp.out, glht, linfct = mcp(strain = "Tukey"),
+                    alternative = "two.sided")
+
+bc.sp.out <- apply(b6.nr$css[, bc.phenos], 2, function(PHEN)
+    glm(PHEN ~ strain + sire.present, data = b6.nr$css))
+names(bc.sp.out) <- bc.phenos
+bc.sp.comp <- lapply(bc.sp.out, glht, linfct = mcp(strain = "Tukey"),
+                     alternative = "two.sided")
+
+
 ## having multiple dams (md) as a covariate
-j30.md.out <- glm(bw30 ~ strain + md, data = b6.nr$css)
+j30.md.out <- glm(bw30 ~ strain + multiple.dams, data = b6.nr$css)
 j30.md.comp <- glht(j30.out, linfct = mcp(strain = "Tukey"),
                     alternative = "two.sided")
 
 bw.md.out <- apply(b6.nr$css[, bw.phenos], 2, function(PHEN) {
-    glm(PHEN ~ strain + md, data = b6.nr$css)
+    glm(PHEN ~ strain + multiple.dams, data = b6.nr$css)
 })
 names(bw.md.out) <- bw.phenos
 bw.md.comp <- lapply(bw.md.out, glht, linfct = mcp(strain = "Tukey"),
                      alternative = "two.sided")
 
 mm.md.out <- apply(b6.nr$css[, mm.phenos], 2, function(PHEN) {
-    glm(PHEN ~ strain + md, data = b6.nr$css)
+    glm(PHEN ~ strain + multiple.dams, data = b6.nr$css)
 })
 names(mm.md.out) <- mm.phenos
 mm.md.comp<- lapply(mm.md.out, glht, linfct = mcp(strain = "Tukey"),
                     alternative = "two.sided")
 
 bc.md.out <- apply(b6.nr$css[, bc.phenos], 2, function(PHEN) {
-    glm(PHEN ~ strain + md, data = b6.nr$css)
+    glm(PHEN ~ strain + multiple.dams, data = b6.nr$css)
 })
 names(bc.md.out) <- bc.phenos
 bc.md.comp <- lapply(bc.md.out, glht, linfct = mcp(strain = "Tukey"), 
@@ -216,8 +245,7 @@ bc.md.comp <- lapply(bc.md.out, glht, linfct = mcp(strain = "Tukey"),
 ## check in old laptop or `litters` to see if where I have it
 j30.da.out <- glm(bw30 ~ strain + dam.age, data = b6.nr$css)
 
-j30.da.comp <- glht(j30.out, linfct = mcp(strain = "Tukey"),,
-                    alternative
+j30.da.comp <- glht(j30.out, linfct = mcp(strain = "Tukey"),
                     alternative = "two.sided")
 
 bw.da.out <- apply(b6.nr$css[, bw.phenos], 2, function(PHEN) {
@@ -243,27 +271,26 @@ bc.da.comp <- lapply(bc.da.out, glht, linfct = mcp(strain = "Tukey"),
 
 
 ## All covariates// Full model
-j30.f.out <- glm(bw30 ~ strain + ls + sp + md, data = b6.nr$css)
+j30.f.out <- glm(bw30 ~ strain + ls + sire.present + multiple.dams, data = b6.nr$css)
 j30.f.comp <- glht(j30.out, linfct = mcp(strain = "Tukey"),
                    alternative = "two.sided")
 
 bw.f.out <- apply(b6.nr$css[, bw.phenos], 2, function(PHEN) {
-    glm(PHEN ~ strain + ls + sp + md, data = b6.nr$css)
+    glm(PHEN ~ strain + ls + sire.present + multiple.dams, data = b6.nr$css)
 })
 names(bw.f.out) <- bw.phenos
-bw.f.comp <- lapply(bw.f.out, glht, linfct = mcp$1)
-})(strain = "Tukey"),
-alternative = "two.sided")
+bw.f.comp <- lapply(bw.f.out, glht, linfct = mcp(strain = "Tukey"),
+                    alternative = "two.sided")
 
 mm.f.out <- apply(b6.nr$css[, mm.phenos], 2, function(PHEN) {
-    glm(PHEN ~ strain + ls + sp + md, data = b6.nr$css)
+    glm(PHEN ~ strain + ls + sire.present + multiple.dams, data = b6.nr$css)
 })
 names(mm.f.out) <- mm.phenos
 mm.f.comp<- lapply(mm.f.out, glht, linfct = mcp(strain = "Tukey"),
                    alternative = "two.sided")
 
 bc.f.out <- apply(b6.nr$css[, bc.phenos], 2, function(PHEN) {
-    glm(PHEN ~ strain + ls + sp + md, data = b6.nr$css)
+    glm(PHEN ~ strain + ls + sire.present + multiple.dams, data = b6.nr$css)
 })
 names(bc.f.out) <- bc.phenos
 bc.f.comp <- lapply(bc.f.out, glht, linfct = mcp(strain = "Tukey"),
@@ -387,85 +414,80 @@ lapply(bc.phenos[9:13], function(PHEN) {
 dev.off()
 
 
-
-
-####################################################################
-##  Body weights over time
-####################################################################
-
-## data
-library(lattice)
-wt <- read.csv("weights.csv", na.strings = c("", "-", NA, "."))
-wt <- wt[!is.na(wt$weight),]
-
-
-pdf("../figures/CSS_F0_F1_BC1_vs_time.pdf", width = 10, height = 4)
-layout(mat = matrix(1:3, nrow = 1))
-par(mar = c(5.5, 5, 1.5, 1)+.1, cex.axis = 1.4, cex.lab = 1.5)
-with(wt[as.character(wt$strain) == "B6.A-15" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, ylim = c(10, 30), col = colp[2], lwd = 4, pch = 15, n.label = FALSE,
-               ylab = "Weight (g)", xlab = "Age (d)", main = expression(F[0])))
-with(wt[as.character(wt$strain) == "B6.A-17" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[4], 
-               lwd = 4, pch = 16, n.label = FALSE, xaxt = "n"))
-with(wt[as.character(wt$strain) == "B6.A-19" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[6], 
-               lwd = 4, pch = 17, n.label = FALSE, xaxt = "n"))
-with(wt[as.character(wt$strain) == "B6.A-X" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[8], 
-               lwd = 4, pch = 18, n.label = FALSE, xaxt = "n"))
-with(wt[wt$id <= 6415 & as.character(wt$strain) == "B6" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[10], 
-               lwd = 4, pch = 19, n.label = FALSE, xaxt = "n"))
-abline(h = seq(10, 30, 5), col = "gray50")
-legend("topleft", 
-       legend = c("B6.A - 15", "B6.A - 17", "B6.A - 19", "B6.A - X", "B6"), 
-       col = colp[c(2, 4, 6, 8, 10)], lwd = 2, pch = 15:19, 
-       bty = "n", bg = "white")
-
-par(mar = c(5.5, 5, 1.5, 1)+.1, cex.axis = 1.4, cex.lab = 1.5)
-with(wt[wt$id <= 6415 & 
-	as.character(wt$strain) == "B6.A-15 F1" & wt$sex == "M", ],
-     plotmeans(weight ~ age, ylim = c(10, 30), col = colp[2],
-               lwd = 4, pch = 15, n.label = FALSE,
-               ylab = "Weight (g)", xlab = "Age (d)", main = expression(F[1])))
-with(wt[as.character(wt$strain) == "B6.A-17 F1" & wt$sex == "M", ],
-     plotmeans(weight ~ age, add = TRUE, col = colp[4], 
-               lwd = 4, pch = 16, n.label = FALSE, xaxt = "n"))
-with(wt[as.character(wt$strain) == "B6.A-19 F1" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[6], 
-               lwd = 4, pch = 17, n.label = FALSE, xaxt = "n"))
-with(wt[as.character(wt$strain) == "B6.A-X F1" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[8], 
-               lwd = 4, pch = 18, n.label = FALSE, xaxt = "n"))
-with(wt[as.character(wt$strain) == "B6" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[10], 
-               lwd = 4, pch = 19, n.label = FALSE, xaxt = "n"))
-abline(h = seq(10, 30, 5), col = "gray50")
-
-par(mar = c(5.5, 5, 1.5, 1)+.1, cex.axis = 1.4, cex.lab = 1.5)
-with(wt[as.character(wt$strain) == "B6.A-15 BC1" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, ylim = c(10, 30), col = colp[2], 
-               lwd = 4, pch = 15, n.label = FALSE,
-               ylab = "Weight (g)", xlab = "Age (d)", 
-               main = expression(BC[1])))
-with(wt[as.character(wt$strain) == "B6.A-17 BC1" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[4], 
-               lwd = 4, pch = 16, n.label = FALSE, xaxt = "n"))
-with(wt[as.character(wt$strain) == "B6.A-19 BC1" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[6], 
-               lwd = 4, pch = 17, n.label = FALSE, xaxt = "n"))
-with(wt[as.character(wt$strain) == "B6.A-X F1" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[8], 
-               lwd = 4, pch = 18, n.label = FALSE, xaxt = "n"))
-with(wt[as.character(wt$strain) == "B6.C" & wt$sex == "M", ], 
-     plotmeans(weight ~ age, add = TRUE, col = colp[10], 
-               lwd = 4, pch = 19, n.label = FALSE, xaxt = "n"))
-abline(h = seq(10, 30, 5), col = "gray50")
-dev.off()
-
-##lit.size <- lm(weight ~ ls*age, data = wt)
-##weights.ls <- wt$weights + mean(wt$ls)
+#% ##  Body weights over time
+#% ## data
+#% library(lattice)
+#% wt <- read.csv("weights.csv", na.strings = c("", "-", NA, "."))
+#% wt <- wt[!is.na(wt$weight),]
+#% 
+#% 
+#% pdf("../figures/CSS_F0_F1_BC1_vs_time.pdf", width = 10, height = 4)
+#% layout(mat = matrix(1:3, nrow = 1))
+#% par(mar = c(5.5, 5, 1.5, 1)+.1, cex.axis = 1.4, cex.lab = 1.5)
+#% with(wt[as.character(wt$strain) == "B6.A-15" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, ylim = c(10, 30), col = colp[2], lwd = 4, pch = 15, n.label = FALSE,
+#%                ylab = "Weight (g)", xlab = "Age (d)", main = expression(F[0])))
+#% with(wt[as.character(wt$strain) == "B6.A-17" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[4], 
+#%                lwd = 4, pch = 16, n.label = FALSE, xaxt = "n"))
+#% with(wt[as.character(wt$strain) == "B6.A-19" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[6], 
+#%                lwd = 4, pch = 17, n.label = FALSE, xaxt = "n"))
+#% with(wt[as.character(wt$strain) == "B6.A-X" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[8], 
+#%                lwd = 4, pch = 18, n.label = FALSE, xaxt = "n"))
+#% with(wt[wt$id <= 6415 & as.character(wt$strain) == "B6" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[10], 
+#%                lwd = 4, pch = 19, n.label = FALSE, xaxt = "n"))
+#% abline(h = seq(10, 30, 5), col = "gray50")
+#% legend("topleft", 
+#%        legend = c("B6.A - 15", "B6.A - 17", "B6.A - 19", "B6.A - X", "B6"), 
+#%        col = colp[c(2, 4, 6, 8, 10)], lwd = 2, pch = 15:19, 
+#%        bty = "n", bg = "white")
+#% 
+#% par(mar = c(5.5, 5, 1.5, 1)+.1, cex.axis = 1.4, cex.lab = 1.5)
+#% with(wt[wt$id <= 6415 & 
+#% 	as.character(wt$strain) == "B6.A-15 F1" & wt$sex == "M", ],
+#%      plotmeans(weight ~ age, ylim = c(10, 30), col = colp[2],
+#%                lwd = 4, pch = 15, n.label = FALSE,
+#%                ylab = "Weight (g)", xlab = "Age (d)", main = expression(F[1])))
+#% with(wt[as.character(wt$strain) == "B6.A-17 F1" & wt$sex == "M", ],
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[4], 
+#%                lwd = 4, pch = 16, n.label = FALSE, xaxt = "n"))
+#% with(wt[as.character(wt$strain) == "B6.A-19 F1" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[6], 
+#%                lwd = 4, pch = 17, n.label = FALSE, xaxt = "n"))
+#% with(wt[as.character(wt$strain) == "B6.A-X F1" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[8], 
+#%                lwd = 4, pch = 18, n.label = FALSE, xaxt = "n"))
+#% with(wt[as.character(wt$strain) == "B6" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[10], 
+#%                lwd = 4, pch = 19, n.label = FALSE, xaxt = "n"))
+#% abline(h = seq(10, 30, 5), col = "gray50")
+#% 
+#% par(mar = c(5.5, 5, 1.5, 1)+.1, cex.axis = 1.4, cex.lab = 1.5)
+#% with(wt[as.character(wt$strain) == "B6.A-15 BC1" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, ylim = c(10, 30), col = colp[2], 
+#%                lwd = 4, pch = 15, n.label = FALSE,
+#%                ylab = "Weight (g)", xlab = "Age (d)", 
+#%                main = expression(BC[1])))
+#% with(wt[as.character(wt$strain) == "B6.A-17 BC1" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[4], 
+#%                lwd = 4, pch = 16, n.label = FALSE, xaxt = "n"))
+#% with(wt[as.character(wt$strain) == "B6.A-19 BC1" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[6], 
+#%                lwd = 4, pch = 17, n.label = FALSE, xaxt = "n"))
+#% with(wt[as.character(wt$strain) == "B6.A-X F1" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[8], 
+#%                lwd = 4, pch = 18, n.label = FALSE, xaxt = "n"))
+#% with(wt[as.character(wt$strain) == "B6.C" & wt$sex == "M", ], 
+#%      plotmeans(weight ~ age, add = TRUE, col = colp[10], 
+#%                lwd = 4, pch = 19, n.label = FALSE, xaxt = "n"))
+#% abline(h = seq(10, 30, 5), col = "gray50")
+#% dev.off()
+#% 
+#% ##lit.size <- lm(weight ~ ls*age, data = wt)
+#% ##weights.ls <- wt$weights + mean(wt$ls)
 
 
 pdf(file.path(tmpDir, "CSS_Comparisons.pdf"), width = 10, height = 10)
@@ -517,9 +539,9 @@ par(mar = c(6, 12, 4, 1)+.1)
 plot.new() # plot(bw.da.comp$pwg, main = expression(pwg==strain+dam~age), col = "purple2")
 dev.off()
 
-#################################################################################
-##  scatter plot of t-value
-#################################################################################
+
+## ----scatter plot of t-value
+
 j30.at <- merge(summary(j30.comp)$test$tstat, 
                 summary(rj30.comp)$test$tstat, by = 0, all.x = TRUE)
 
@@ -641,23 +663,23 @@ dev.off()
 
 ## ----scatter_plot_of_t.value--------------------------------------------------
 ## merge Discovery and Replicate backcross t.stat
-#% j30.at <- merge(summary(j30.comp)$test$tstat,
-#%                 summary(rj30.comp)$test$tstat, by = 0, all.x = TRUE)
-#% bw.t <- sapply(lapply(bw.comp, summary), function(x) x$test$tstat)
-#% bw.rt <- sapply(lapply(rbw.comp, summary), function(x) x$test$tstat)
-#% bw.at <- merge(bw.t, bw.rt, by = 0, all.x = TRUE)
-#% mm.t <- sapply(lapply(mm.comp, summary), function(x) x$test$tstat)
-#% mm.rt <- sapply(lapply(rmm.comp, summary), function(x) x$test$tstat)
-#% mm.at <- merge(mm.t, mm.rt, by = 0, all.x = TRUE)
-#% bc.t <- sapply(lapply(bc.comp, summary), function(x) x$test$tstat)
-#% bc.rt <- sapply(lapply(rbc.comp, summary), function(x) x$test$tstat)
-#% bc.at <- merge(bc.t, bc.rt, by = 0, all.x = TRUE)
-#% all.t <- merge(j30.at, bw.at, by = "Row.names")
-#% all.t <- merge(all.t, mm.at, by = "Row.names")
-#% all.t <- merge(all.t, bc.at, by = "Row.names")
-#% 
-#% j30.t.ht <- merge(summary(j30.comp)$test$tstat, 
-#%                   summary(rj30.comp)$test$tstat, by = 0, all.x = TRUE)
+j30.at <- merge(summary(j30.comp)$test$tstat,
+                summary(rj30.comp)$test$tstat, by = 0, all.x = TRUE)
+bw.t <- sapply(lapply(bw.comp, summary), function(x) x$test$tstat)
+bw.rt <- sapply(lapply(rbw.comp, summary), function(x) x$test$tstat)
+bw.at <- merge(bw.t, bw.rt, by = 0, all.x = TRUE)
+mm.t <- sapply(lapply(mm.comp, summary), function(x) x$test$tstat)
+mm.rt <- sapply(lapply(rmm.comp, summary), function(x) x$test$tstat)
+mm.at <- merge(mm.t, mm.rt, by = 0, all.x = TRUE)
+bc.t <- sapply(lapply(bc.comp, summary), function(x) x$test$tstat)
+bc.rt <- sapply(lapply(rbc.comp, summary), function(x) x$test$tstat)
+bc.at <- merge(bc.t, bc.rt, by = 0, all.x = TRUE)
+all.t <- merge(j30.at, bw.at, by = "Row.names")
+all.t <- merge(all.t, mm.at, by = "Row.names")
+all.t <- merge(all.t, bc.at, by = "Row.names")
+
+j30.t.ht <- merge(summary(j30.comp)$test$tstat, 
+                  summary(rj30.comp)$test$tstat, by = 0, all.x = TRUE)
 
 ## write to file, then annotate in excel to match e.g.
 ## note: N2 = Discovery Backcross (N2), N2.2 = Replicate Backcross (N2)
@@ -670,11 +692,9 @@ dev.off()
 #> |B6.A-X F1 B/B vs B6.A-15 N2 B/B  |Body Weight at 30 d (g) |B6/B6 vs B6/B6 | -1.82|   NA|
 #> |B6.A-X F1 B/B vs B6.A-17 N2 B/B  |Body Weight at 30 d (g) |B6/B6 vs B6/B6 | -0.48| 3.09|
 #> |B6.A-X F1 B/B vs B6.A-19 N2 B/B  |Body Weight at 30 d (g) |B6/B6 vs B6/B6 | -1.35| 0.26|
-#% write.table(melt(all.t), file = "B6NR_t-values.txt",
+#% write.table(melt(all.t), file = file.path(tmpDir, "B6NR_t-values.raw.txt"),
 #%             quote = FALSE, row.names = FALSE, sep = "\t")
-#% 
-#% tval <- read.delim("tables/01.glm_B6_NR/B6NR_t-values.txt")
-#% tval <- read.delim("tables/01.glm_B6_NR/B6NR_t-values.txt")
+## tval <- read.delim("data-raw/B6NR_t-values.txt")
 data(tval)
 
 comp.bb <- unique(grep("B6.C", tval$comparison, value = TRUE))

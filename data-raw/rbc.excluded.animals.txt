@@ -1,0 +1,121 @@
+id	reason
+7969	A/J breeder
+7973	A/J breeder
+7977	A/J breeder
+7981	A/J breeder
+7259	B6 control
+7715	B6
+8191	B6
+8094	B6.A-15 breeder
+8095	B6.A-15 breeder
+8096	B6.A-15 breeder
+8097	B6.A-15 breeder
+8098	B6.A-15 breeder
+8099	B6.A-15 breeder
+8244	B6.A-17 breeder
+8245	B6.A-17 breeder
+8246	B6.A-17 breeder
+8247	B6.A-17 breeder
+8323	B6.A-17 mb breeder
+8324	B6.A-17 mb breeder
+8325	B6.A-17 mb breeder
+8326	B6.A-17 mb breeder
+8327	B6.A-17 mb breeder
+8328	B6.A-17 mb breeder
+8329	B6.A-17 mb breeder
+8330	B6.A-17 mb breeder
+8331	B6.A-17 mb breeder
+7209	B6.A-17 F1 breeder
+7449	B6.A-17 F1 breeder
+7515	B6.A-17 F1 breeder
+7517	B6.A-17 F1 breeder
+7542	B6.A-17 F1 breeder
+7546	B6.A-17 F1 breeder
+7911	B6.A-17 F1 breeder
+8259	B6.A-17 F1 breeder
+8260	B6.A-17 F1 breeder
+7697	B6.A-17 F2
+7698	B6.A-17 F2
+7699	B6.A-17 F2
+7700	B6.A-17 F2
+7986	B6.A-17 F2
+7987	B6.A-17 F2
+7988	B6.A-17 F2
+7989	B6.A-17 F2
+8011	B6.A-17 F2
+8012	B6.A-17 F2
+8013	B6.A-17 F2
+8014	B6.A-17 F2
+8015	B6.A-17 F2
+8016	B6.A-17 F2
+8020	B6.A-17 F2
+8188	B6.A-17 F2
+8189	B6.A-17 F2
+8248	B6.A-17 F2
+8249	B6.A-17 F2
+8250	B6.A-17 F2
+8251	B6.A-17 F2
+8252	B6.A-17 F2
+8272	B6.A-17 F2
+8037	B6.A-19 breeder
+8038	B6.A-19 breeder
+8039	B6.A-19 breeder
+8040	B6.A-19 breeder
+8042	B6.A-19 breeder
+8044	B6.A-19 breeder
+7453	B6.A-19 F1 breeder
+7537	B6.A-19 F1 breeder
+7613	B6.A-19 F1 breeder
+7720	B6.A-19 F1 breeder
+7721	B6.A-19 F1 breeder
+7899	B6.A-19 F1 breeder
+7900	B6.A-19 F1 breeder
+7901	B6.A-19 F1 breeder
+8316	B6.A-X breeder
+8317	B6.A-X breeder
+8318	B6.A-X breeder
+8319	B6.A-X breeder
+8320	B6.A-X breeder
+8321	B6.A-X breeder
+8322	B6.A-X breeder
+7767	low call rate
+7916	low call rate
+7526	low call rate
+8200	low call rate
+8216	low call rate
+8217	low call rate
+8030	low call rate
+7770	low call rate
+8066	low call rate
+8198	low call rate
+8214	low call rate
+8031	low call rate
+8063	low call rate
+7501	low call rate
+7502	low call rate
+7519	low call rate
+7548	low call rate
+7549	low call rate
+7686	low call rate
+7687	low call rate
+7750	low call rate
+7751	low call rate
+7768	low call rate
+8062	low call rate
+7995	disconcordant genotype/strain
+7520	low call rate
+7708	low call rate
+7709	low call rate
+7728	low call rate
+7729	low call rate
+7950	unknown strain
+7951	unknown strain
+7952	unknown strain
+7953	unknown strain
+7815	sex discrepancy
+7744	mice had severely injured tails, abnormal spleens and reduced bw & bc phenotypes
+7745	mice had severely injured tails, abnormal spleens and reduced bw & bc phenotypes
+7746	mice had severely injured tails, abnormal spleens and reduced bw & bc phenotypes
+7747	mice had severely injured tails, abnormal spleens and reduced bw & bc phenotypes
+7748	mice had severely injured tails, abnormal spleens and reduced bw & bc phenotypes
+8076	cystic kidney

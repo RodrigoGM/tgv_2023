@@ -1,0 +1,56 @@
+	full.name
+id	Mouse Ear Tag
+sex	Sex
+strain	Strain
+sire	Sire
+dam	Dam
+generation	Generation
+dob	Date of Birth
+ls	Litter Size (N)
+sevrage	Date of Weaning
+dtc	Date of Tail Biopsie
+nf	Number of Females
+nm	Number of Males
+nsibs	Mice Weaned
+n.cage	Mice per Cage
+cage.id	Cage ID
+cage.type	Cage Type
+sp	Sire Present
+md	Multiple Dams
+out	Date Euthanized
+d40	Date at 40 d
+d50	Date at 50 d
+d60	Date at 60 d
+bw30	Body Weight at 30 d (g)
+bw40	Body Weight at 40 d (g)
+bw50	Body Weight at 50 d (g)
+bw60	Body Weight at 60 d (g)
+comments.x	Comments pre-SAC
+sac.date	Dissection Date
+time	Dissection Start Time
+na	Nasal - Anal Length (mm)
+nt	Nasal - Tail Length (mm)
+femur	Femur Length (mm)
+ecw	Carcass Weight (g)
+liver	Liver (g)
+spleen	Spleen (g)
+kidney	Kidney (g)
+heart	Heart (g)
+testis	Testis (g)
+gfp	Gonadal Fat (g)
+rfp	Retro-Peritoneal Fat (g)
+mfp	Mesenteric Fat (g)
+ffp	Femoral Fat (g)
+brain	Brain Weight (g)
+muscle	Gastrocnemius (g)
+X1g_wt	Scale Covariate
+comments.y	Comments at Dissection
+tail	Tail Length (mm)
+tf	Total Fat Mass (g)
+g1	Weight Gain 30 - 40 d (g)
+g2	Weight Gain 40 - 50 d (g)
+g3	Weight Gain 50 - 60 d (g)
+pwg	Post-Weaning Weight Gain (g)
+age.sac	Age at Sacrifice
+placenta	Placenta (g)
+embryo.wt	Embryo Weight (g)
