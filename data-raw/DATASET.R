@@ -25,6 +25,7 @@
 #' Université de Liège
 #' Belgique
 #' =============================================================================
+Purposely placed this text unquoted to avoid accidental .ess.source
 
 
 ## ---- include = FALSE---------------------------------------------------------
@@ -54,7 +55,7 @@ options(error = dump.frames("css", to.file = TRUE), width = 160,
 ## ----data---------------------------------------------------------------------
 ## ---- phenotype abreviations
 abv <- read.delim("data-raw/abv.dat", row.names = 1)
-usethis::use_data(abv, overwrite = TRUE)
+usethis::use_data(abv, overwrite = FALSE)
 
 ## ---- full pedigree
 #' tgv.pedigree <- read.pedigree(TRUE, path = "data-raw/pedigree.csv")
@@ -76,7 +77,7 @@ pre.css$pheno$generation = gsub("BC1", "N2",
 pre.css$pheno$population = "Discovery Backcross (N2)"
 pre.css$pheno$population.year = 2012
 pre.css$pheno$cohort.name = "Cohort I (N2)"                       
-    
+
 css <- jittermap(pre.css)
 pmap1 <- pull.map(css)
 
@@ -240,8 +241,8 @@ write.cross(css.recombinants, "csvs", filestem = file.path(tabDir, "CSS_REC"))
 usethis::use_data(tgv.pedigree,
                   sorted.mouse.ids, 
                   pre.css, css, c15, c17, c19, cX,
-                  overwrite = TRUE)
-usethis::use_data(css.b6.nr, css.ht.nr, css.recombinants, overwrite = TRUE)
+                  overwrite = FALSE)
+usethis::use_data(css.b6.nr, css.ht.nr, css.recombinants, overwrite = FALSE)
 
 ## ----Discovery_and_RBC_Cross_Summaries----------------------------------------
 ## Plot Cross Summary
@@ -290,7 +291,7 @@ mm %>%
     theme(legend.position = "bottom") 
 dev.off()
 
-usethis::use_data(geno.maps, overwrite = TRUE)
+usethis::use_data(geno.maps, overwrite = FALSE)
 
 ## ----Embryo_Cross_Data--------------------------------------------------------
 ##  This code is ment to select the non recombinant mice and perform an
@@ -380,7 +381,7 @@ write.cross(em.ht.nr, "csvs", filestem = file.path(tabDir, "EM_Ht_NR"))
 write.cross(em.recombinants, "csvs", filestem = file.path(tabDir, "EM_REC"))
 
 usethis::use_data(pre.em, em, em.b6.nr, em.ht.nr, em.recombinants,
-                  em.mf.sorted.ids, overwrite = TRUE)
+                  em.mf.sorted.ids, overwrite = FALSE)
 
 ## ----Replicate_Back_Cross-----------------------------------------------------
 pre.rbc <- read.cross("csvs", genfile = "data-raw/css_rbc_geno.csv",
@@ -450,7 +451,7 @@ write.cross(rbc.ht.nr, "csvs", filestem = file.path(tabDir, "RBC_Ht_NR"))
 write.cross(rbc.recombinants, "csvs", filestem = file.path(tabDir, "RBC_REC"))
 
 usethis::use_data(pre.rbc, rbc, rbc.b6.nr, rbc.ht.nr, rbc.recombinants,
-                  overwrite = TRUE)
+                  overwrite = FALSE)
 
 ## ----Persistance_Back_Cross(N3)-----------------------------------------------
 pre.css.n3 <- read.cross("csvs", genfile = "../data/css_geno.csv",
@@ -476,7 +477,7 @@ dev.off()
 
 write.cross(css.n3, "csvs", filestem = file.path(tabDir, "CSS_N3"))
 
-usethis::use_data(pre.css.n3, css.n3, overwrite = TRUE)
+usethis::use_data(pre.css.n3, css.n3, overwrite = FALSE)
 
 
 ## ----RNAseq_cssDE-------------------------------------------------------------
@@ -490,7 +491,7 @@ cssDesign$strain <- factor(cssDesign$strain,
                            labels = strains,
                            ordered = FALSE)
 
-usethis::use_data(htcount, cssDesign, overwrite = TRUE)
+usethis::use_data(htcount, cssDesign, overwrite = FALSE)
 
 
 ## ----qRT_PCR_Validation-------------------------------------------------------
@@ -499,7 +500,7 @@ expSS <- read.csv(gzfile("data-raw/expression_strain_specific.csv.gz"))
 expVD <- read.csv(gzfile("data-raw/expression_validation.csv.gz"))
 expVD2 <- read.csv(gzfile("data-raw/expression_validation_2.csv.gz"))
 
-usethis::use_data(expTR, expSS, expVD, expVD2, overwrite = TRUE)
+usethis::use_data(expTR, expSS, expVD, expVD2, overwrite = FALSE)
 
 
 ## __EOF__
